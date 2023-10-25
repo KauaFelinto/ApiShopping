@@ -5,21 +5,20 @@ import ProductCard from '../ProductCard/ProductCard';
 
 function Products() {
 
-  const [products, setProducts] = useState([]);
+  const [products, setProducts ] = useState([]);
 
   useEffect(() => {
-
     fecthProducts('iphone').then((response) => {
       setProducts(response);
-      console.log(products);
     });
 
   }, []);
-  console.log(products);
 
   return(
     <section className="products container">
-      <ProductCard />
+      {
+        products.map((product) => <ProductCard key={product.id} data={product}/>)
+      }
     </section>
   );
 }

@@ -1,20 +1,26 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import './ProductCard.css';
-import {MdLibraryAdd} from 'react-icons/md';
+import {BsFillCartPlusFill} from 'react-icons/bs';
 
-function ProductCard(){
+function ProductCard( {data} ) {
+
+  const [title, thumbnail, price] = data;
+
   return(
     <section className="product-card">
 
-      <img src="https://http2.mlstatic.com/D_640758-MLA47782243628_102021-W.jpg" alt="image" className="card_image"/>
+      <img src={thumbnail}
+        alt="image" 
+        className="card_image"/>
 
       <div className="card-infos">
-        <h2 className="card-title">iPhone 13</h2>
-        <h2 className="card-price">R$3.500,00</h2>
+        <h2 className="card-title">{title}</h2>
+        <h2 className="card-price">{price}</h2>
       </div>
 
       <button type="button" className="button-add">
-        <MdLibraryAdd />
+        <BsFillCartPlusFill />
       </button>
 
     </section>
@@ -22,3 +28,7 @@ function ProductCard(){
 }
 
 export default ProductCard;
+
+ProductCard.propTypes  = {
+  data: propTypes.shape({}),
+}.isRequired;
