@@ -10,6 +10,11 @@
   position: relative;
   margin-left: 20px;
   color: #fff;
+  border-radius: 50%;
+  transition: .3s;
+}
+.cart_button:hover{
+  background-color: rgba(73, 73, 73, 0.5);
 }
 
 .cart-status{

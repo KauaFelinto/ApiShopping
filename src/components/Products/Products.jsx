@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Products.css';
-import fecthProducts from '../../Api/fetchProducts';
+import fetchProducts from '../../Api/fetchProducts';
 import ProductCard from '../ProductCard/ProductCard';
 
 function Products() {
 
-  const [products, setProducts ] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fecthProducts('iphone').then((response) => {
+    fetchProducts('iphone').then((response) => {
       setProducts(response);
     });
 
