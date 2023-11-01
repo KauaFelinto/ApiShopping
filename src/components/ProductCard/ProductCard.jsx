@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import './ProductCard.css';
 import {BsFillCartPlusFill} from 'react-icons/bs';
 import formatCurrency from '../../Utils/formatCurrency';
+import AppContext from '../../Context/AppContext';
 
 function ProductCard({ data }) {
 
   const {thumbnail, title, price} = data;
+
+  const {cartItens, setCartItens} = useContext(AppContext);
+
+  const handleAddCart = () => setCartItens([ ...cartItens, data ]);
 
   return(
     <section className="product-card">
@@ -20,7 +25,9 @@ function ProductCard({ data }) {
         <h2 className="card-price">{formatCurrency(price, 'BRL')}</h2>
       </div>
 
-      <button type="button" className="button-add">
+      <button type="button" 
+        className="button-add"
+        onClick={handleAddCart}>
         <BsFillCartPlusFill />
       </button>
 
