@@ -15,7 +15,7 @@ function CartButton() {
       onClick={ () => setIsCartVisible(!isCartVisible) }
     >
       <AiOutlineShoppingCart />
-      <span className="cart-status">{cartItems.length}</span>
+      { cartItems.length > 0 && <span className="cart-status">{cartItems.length}</span> }
     </button>
   );
 }
