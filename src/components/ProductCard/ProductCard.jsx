@@ -9,9 +9,9 @@ function ProductCard({ data }) {
 
   const {thumbnail, title, price} = data;
 
-  const {cartItens, setCartItens} = useContext(AppContext);
+  const {cartItems, setCartItens} = useContext(AppContext);
 
-  const handleAddCart = () => setCartItens([ ...cartItens, data ]);
+  const handleAddCart = () => setCartItens([ ...cartItems, data ]);
 
   return(
     <section className="product-card">
